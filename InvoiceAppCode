@@ -1,0 +1,58 @@
+
+package invoiceAPP;
+
+
+import java.util.Scanner;
+
+public class invoicecode 
+{
+	public static void main(String[] args) 
+	{			
+			Scanner keyboard = new Scanner(System.in);
+			
+	        double price;
+			    int p = 0;   
+			    double myPrices[] = new double[100]; 
+			    double taxrate = 0;
+			    double taxamount = 0; 
+			    double grandtotal = 0; 
+		
+			
+			System.out.println("What is the tax rate? (enter as decimal): "); 
+			taxrate = keyboard.nextDouble(); 		
+			
+			System.out.println("What is the subtotal?"); 			    
+			price = keyboard.nextDouble();
+			    		
+			  while(price != 0.00)
+			    { 
+			      myPrices[p] = price; 
+				    System.out.println("Input each item price:");
+				
+				    price = keyboard.nextDouble();  
+				    p++; 				
+			    } 
+
+	       double subtotal = 0; 
+	        
+          
+	      for(int counter=1; counter<p; counter++)
+	        {
+	        	System.out.printf("Item "+counter+": %.02f\n", myPrices[counter]);  
+			        
+	        	subtotal += myPrices[counter];
+	        	taxamount = subtotal * taxrate;  
+	        	grandtotal = subtotal + taxamount; 
+	        } 
+	        
+          
+	       System.out.println("----------------------------");   
+	       System.out.println("     RECEIPT     "); 
+	       System.out.println("SUBTOTAL: " +subtotal); 
+	       System.out.println("TAX: " +taxamount);
+	       System.out.println("TOTAL:  " +grandtotal); 
+	       System.out.println("----------------------------");   
+
+	}
+}	
+
